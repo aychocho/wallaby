@@ -1,10 +1,11 @@
 # wallaby
-Spoofs nvidia-smi
 
-Compile wallaby by running the following command
+**wallaby** is a tool built to expose a core vulnerability in decentralized compute networks: They have no control over the hardware. **wallaby** misrepresents the name of any GPU on any hardware.
 
-gcc -shared -fPIC -o wallaby.so wallaby.c -ldl
+Compile wallaby by running the following command:
 
-Run wallaby as follows: 
+    gcc -shared -fPIC -o wallaby.so wallaby.c -ldl
 
-LD_PRELOAD=./wallaby.so nvidia-smi
+Run wallaby as follows:
+
+    LD_PRELOAD=./wallaby.so nvidia-smi
