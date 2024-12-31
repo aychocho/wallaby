@@ -9,3 +9,7 @@ Compile wallaby by running the following command:
 Run wallaby as follows:
 
     LD_PRELOAD=./wallaby.so nvidia-smi
+
+To get wallaby to hide itself and run anytime nvidia-smi is called, add the following line to the end of the .bashrc
+
+    export LD_PRELOAD={PATH_TO_WALLABY}/wallaby.so:$LD_PRELOAD
