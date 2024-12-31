@@ -11,8 +11,6 @@ typedef nvmlReturn_t (*nvmlDeviceGetName_t)(nvmlDevice_t device, char* name, uns
 
 // fake nvmlDeviceGetName function
 nvmlReturn_t wallaby(unsigned int device, char* name, unsigned int length) {
-    printf("[Interception] Spoofing GPU name\n");
-    fflush(stdout);
     snprintf(name, length, "PWNED! I OWN you now."); // replace gpu name
     return NVML_SUCCESS; // return NVML success
 }
@@ -20,12 +18,8 @@ nvmlReturn_t wallaby(unsigned int device, char* name, unsigned int length) {
 // dlsym intercept
 void* dlsym(void* handle, const char* symbol) {
 
-    printf("[DEBUG] symbol: %s\n", symbol);
-    fflush(stdout);
     // check if symbol is nvmldevicegetname
     if (strcmp(symbol, "nvmlDeviceGetName") == 0) {
-        printf("[Interception] Intercepted nvmlDeviceGetName!\n");
-        fflush(stdout);
         // return addr of fake nvmldevicegetname
         return (void*)wallaby;
     } else {
