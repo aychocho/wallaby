@@ -13,3 +13,10 @@ Run wallaby as follows:
 To get wallaby to hide itself and run anytime nvidia-smi is called, add the following line to the end of the .bashrc
 
     export LD_PRELOAD={PATH_TO_WALLABY}/wallaby.so:$LD_PRELOAD
+
+To dynamically add and remove wallaby, add the following aliases to the .bashrc
+
+    #add wallaby alias
+    alias wallaby='echo "export LD_PRELOAD={PATH_TO_WALLABY}/wallaby.so:\$LD_PRELOAD" >> ~/.bashrc && newbash'
+    #remove wallaby alias
+    alias killWallaby='sed -i "\#^export LD_PRELOAD={PATH_TO_WALLABY}/wallaby.so.*\$#d" ~/.bashrc && unset LD_PRELOAD && echo "we wallaby huntin" && newbash'
