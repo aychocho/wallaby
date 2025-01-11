@@ -6,7 +6,11 @@ Compile wallaby by running the following command:
 
     gcc -shared -fPIC -o wallaby.so wallaby.c -ldl
 
-Run wallaby as follows:
+
+#Local environments
+
+
+Preload wallaby as follows:
 
     LD_PRELOAD=./wallaby.so nvidia-smi
 
@@ -20,3 +24,14 @@ To dynamically add and remove wallaby, add the following aliases to the .bashrc
     alias wallaby='echo "export LD_PRELOAD={PATH_TO_WALLABY}/wallaby.so:\$LD_PRELOAD" >> ~/.bashrc && newbash'
     #remove wallaby alias
     alias killWallaby='sed -i "\#^export LD_PRELOAD={PATH_TO_WALLABY}/wallaby.so.*\$#d" ~/.bashrc && unset LD_PRELOAD && echo "we wallaby huntin" && newbash'
+
+
+#Docker environments
+
+Build the docker image (replace the name with the container to spoof):
+
+    docker build -t nvidia/cuda:12.4.1-base-ubuntu22.04 .
+
+Run the docker image
+
+    sudo docker run --runtime=nvidia -it nvidia/cuda:12.4.1-base-ubuntu22.04 bash
