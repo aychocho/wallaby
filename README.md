@@ -7,7 +7,7 @@ Compile wallaby by running the following command:
     gcc -shared -fPIC -o wallaby.so wallaby.c -ldl
 
 
-#Local environments
+# Local environments
 
 
 Preload wallaby as follows:
@@ -26,7 +26,7 @@ To dynamically add and remove wallaby, add the following aliases to the .bashrc
     alias killWallaby='sed -i "\#^export LD_PRELOAD={PATH_TO_WALLABY}/wallaby.so.*\$#d" ~/.bashrc && unset LD_PRELOAD && echo "we wallaby huntin" && newbash'
 
 
-#Docker environments
+# Docker environments
 
 Build the docker image (replace the name with the container to spoof):
 
