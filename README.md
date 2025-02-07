@@ -2,6 +2,8 @@
 
 **wallaby** is a tool built to expose a core vulnerability in decentralized compute networks: They have no control over the hardware. **wallaby** misrepresents the name of any GPU on any hardware.
 
+Quick writeup on my thought-process/disassembly here: https://incongruous-gatsby-354.notion.site/Ghidra-on-nvidia-smi-193235325b6b81cfb656f8c7c29bbd48
+
 Compile wallaby by running the following command:
 
     gcc -shared -fPIC -o wallaby.so wallaby.c -ldl
