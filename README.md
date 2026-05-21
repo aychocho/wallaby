@@ -4,6 +4,8 @@
 
 Quick writeup on my thought-process/disassembly here: https://incongruous-gatsby-354.notion.site/Ghidra-on-nvidia-smi-193235325b6b81cfb656f8c7c29bbd48
 
+See also for PCIID spoofing: https://github.com/aychocho/dassie
+
 Compile wallaby by running the following command:
 
     gcc -shared -fPIC -o wallaby.so wallaby.c -ldl
